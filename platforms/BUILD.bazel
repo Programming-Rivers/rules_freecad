@@ -1,0 +1,23 @@
+constraint_setting(
+    name = "freecad_version",
+)
+
+constraint_value(
+    name = "freecad_1.0.x",
+    constraint_setting = ":freecad_version",
+    visibility = [
+        "//visibility:public",
+    ],
+)
+
+platform(
+    name = "freecad_linux_x86_64",
+    constraint_values = [
+        "@platforms//os:linux",
+        "@platforms//cpu:x86_64",
+        ":freecad_1.0.x",
+    ],
+    visibility = [
+        "//visibility:public",
+    ],
+)

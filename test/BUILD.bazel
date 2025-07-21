@@ -1,0 +1,11 @@
+load("@rules_python//python:defs.bzl", "py_binary")
+
+# This target must be built with the FreeCAD Python toolchain
+py_binary(
+    name = "main_app",
+    srcs = ["main.py"],
+    main = "main.py",
+    target_compatible_with = [
+        "//platforms:freecad_1.0.x",
+    ],
+)

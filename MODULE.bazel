@@ -1,0 +1,63 @@
+""" Bazel module definition for rules_freecad """
+
+module(
+    name = "rules_freecad",
+    version = "0.0.1",
+    compatibility_level = 1,
+)
+
+bazel_dep(
+    name = "rules_python",
+    version = "1.6.3",
+)
+
+bazel_dep(
+    name = "platforms",
+    version = "1.0.0",
+)
+
+python = use_extension(
+    "@rules_python//python/extensions:python.bzl",
+    "python",
+)
+
+python.toolchain(
+    python_version = "3.11",
+    is_default = False,
+)
+use_repo(python, "python_3_11", "python_versions", "pythons_hub")
+
+pip = use_extension(
+    "@rules_python//python/extensions:pip.bzl",
+    "pip",
+)
+pip.parse(
+    hub_name = "pypi",
+    python_version = "3.11",
+    requirements_lock = "//:requirements.txt",  # Or requirements.txt if you want Bazel to generate the lock file
+)
+use_repo(pip, "pypi")
+
+http_file = use_repo_rule(
+    "@bazel_tools//tools/build_defs/repo:http.bzl",
+    "http_file",
+)
+
+http_file(
+    name = "freecad",
+    url = "https://github.com/FreeCAD/FreeCAD/releases/download/1.0.2/FreeCAD_1.0.2-conda-Linux-x86_64-py311.AppImage",
+    sha256 = "e00be00ad9fdb12b05c5002bfd1aa2ea8126f2c1d4e2fb603eb7423b72904f61",
+    executable = True,
+    downloaded_file_path = "freecad.AppImage",
+)
+
+custom_python_extension = use_extension(
+    "//tools:extensions.bzl",
+    "custom_python_extension",
+)
+use_repo(custom_python_extension, "python_interpreter_linux_x86_64")
+register_toolchains("@python_interpreter_linux_x86_64//:freecad_toolchain")
+
+register_execution_platforms(
+    "//platforms:freecad_linux_x86_64",
+)
