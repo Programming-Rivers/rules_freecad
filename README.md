@@ -56,7 +56,7 @@ runs against the exact same environment, every time, on any machine.
 
 Imagine a user wants to run the following FreeCAD script:
 
-**`test/main.py`**
+**`examples/hello_world.py`**
 ```python
 """Test if the FreeCAD toolchain is used"""
 import sys
@@ -75,7 +75,7 @@ A user needs to perform two steps to instruct Bazel to use FreeCAD's built-in Py
     In the `BUILD.bazel` file, use the `target_compatible_with` attribute to tell Bazel
     that this script requires the custom FreeCAD platform.
 
-    **`test/BUILD.bazel`**
+    **`examples/BUILD.bazel`**
     ```python
     load("@rules_python//python:defs.bzl", "py_binary")
 
@@ -144,7 +144,7 @@ The `--platforms` flag instructs Bazel which platform to target,
 ensuring the correct toolchain is selected.
 
 ```bash
-bazel run //test:main_app --platforms=//platforms:freecad_linux_x86_64
+bazel run //examples:hello_world --platforms=//platforms:freecad_linux_x86_64
 ```
 
 You should see output similar to this, confirming that the script was executed by `freecadcmd`:
