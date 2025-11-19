@@ -13,8 +13,14 @@ load("//tools:py_distrubution.bzl", "py_distribution")
 def _custom_python_extension_impl(module_ctx):
     py_distribution(
         name = "python_interpreter_linux_x86_64",
-        url = "https://github.com/FreeCAD/FreeCAD/releases/download/1.0.2/FreeCAD_1.0.2-conda-Linux-x86_64-py311.AppImage",
-        sha256 = "e00be00ad9fdb12b05c5002bfd1aa2ea8126f2c1d4e2fb603eb7423b72904f61",
+        interpreter_label = "@@//:freecad_extracted_linux",
+        files_label = "@@//:freecad_extracted_linux",
+    )
+
+    py_distribution(
+        name = "python_interpreter_macos_arm64",
+        interpreter_label = "@@//:freecad_extracted_macos",
+        files_label = "@@//:freecad_extracted_macos",
     )
 
 custom_python_extension = module_extension(

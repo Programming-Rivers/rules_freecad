@@ -17,20 +17,13 @@ load(
     "py_runtime_pair",
 )
 
-# All the python dependencies packaged with FreeCAD and all the system libraries are required-
-# for FreeCAD to work as a python interpreter.
-filegroup(
-    name = "files",
-    srcs = glob(["**"]),
-)
-
 # Point to the extracted binary within the FreeCAD archive
 py_runtime(
     name = "py_runtime",
     files = [
-        ":files",
+        "{files_label}",
     ],
-    interpreter = "@python_interpreter_linux_x86_64//:squashfs-root/usr/bin/freecadcmd",
+    interpreter = "{interpreter_label}",
     python_version = "PY3",
 )
 

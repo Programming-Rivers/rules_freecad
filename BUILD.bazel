@@ -1,0 +1,35 @@
+load("//tools:extract.bzl", "extract_freecad")
+
+package(default_visibility = ["//visibility:public"])
+
+# Select the correct 7zip binary based on the host platform
+alias(
+    name = "7zip",
+    actual = select({
+        "@platforms//os:linux": "@7zip_linux_x64//:binary",
+        "@platforms//os:macos": "@7zip_macos//:binary",
+    }),
+)
+
+# Linux Extraction
+extract_freecad(
+    name = "freecad_extracted_linux",
+    src = "@freecad//file",
+    os = "linux",
+)
+
+# MacOS Extraction
+extract_freecad(
+    name = "freecad_extracted_macos",
+    src = "@freecad_macos_arm64//file",
+    os = "macos",
+    tool = ":7zip",
+)
+
+config_setting(
+    name = "macos_arm64",
+    constraint_values = [
+        "@platforms//os:macos",
+        "@platforms//cpu:arm64",
+    ],
+)
