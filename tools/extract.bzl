@@ -52,7 +52,7 @@ def _extract_freecad_impl(ctx):
         # Create wrapper
         echo '#!/bin/bash' > {wrapper}
         echo 'DIR=$(dirname $(realpath $0))/{dir_name}' >> {wrapper}
-        echo 'exec $DIR/FreeCAD/FreeCAD.app/Contents/MacOS/FreeCADCmd "$@"' >> {wrapper}
+        echo 'exec $DIR/FreeCAD/FreeCAD.app/Contents/Resources/bin/freecadcmd "$@"' >> {wrapper}
         chmod +x {wrapper}
         """.format(
             tool = tool.path,
