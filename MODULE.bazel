@@ -49,7 +49,7 @@ http_archive = use_repo_rule(
 )
 
 http_file(
-    name = "freecad",
+    name = "freecad_linux_x86_64",
     url = "https://github.com/FreeCAD/FreeCAD/releases/download/1.0.2/FreeCAD_1.0.2-conda-Linux-x86_64-py311.AppImage",
     sha256 = "e00be00ad9fdb12b05c5002bfd1aa2ea8126f2c1d4e2fb603eb7423b72904f61",
     executable = True,
@@ -57,7 +57,7 @@ http_file(
 )
 
 http_archive(
-    name = "7zip_linux_x64",
+    name = "7zip_linux_x86_64",
     url = "https://7-zip.org/a/7z2408-linux-x64.tar.xz",
     sha256 = "9b3a2edf0644a2b00b0a39ab6843f426128e4a6f6f98c40f8c02a668e5b5b59b",
     build_file_content = """
@@ -98,4 +98,3 @@ register_toolchains(
     "@python_interpreter_linux_x86_64//:freecad_toolchain",
     "@python_interpreter_macos_arm64//:freecad_toolchain",
 )
-

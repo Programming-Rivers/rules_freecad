@@ -6,7 +6,7 @@ package(default_visibility = ["//visibility:public"])
 alias(
     name = "7zip",
     actual = select({
-        "@platforms//os:linux": "@7zip_linux_x64//:binary",
+        "@platforms//os:linux": "@7zip_linux_x86_64//:binary",
         "@platforms//os:macos": "@7zip_macos//:binary",
     }),
 )
@@ -14,7 +14,7 @@ alias(
 # Linux Extraction
 extract_freecad(
     name = "freecad_extracted_linux",
-    src = "@freecad//file",
+    src = "@freecad_linux_x86_64//file",
     os = "linux",
 )
 
