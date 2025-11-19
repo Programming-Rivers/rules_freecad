@@ -36,10 +36,10 @@ py_runtime_pair(
 toolchain(
     name = "freecad_toolchain",
     exec_compatible_with = [
-        {constraints},
+        {exec_constraints},
     ],
     target_compatible_with = [
-        {constraints},
+        {target_constraints},
     ],
     toolchain = ":py_runtime_pair",
     toolchain_type = "@rules_python//python:toolchain_type",

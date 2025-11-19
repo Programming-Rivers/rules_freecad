@@ -7,15 +7,20 @@ def _py_distribution_impl(repository_ctx):
     # Extraction is now handled by a genrule in the main repository.
     # This rule only generates the toolchain definition.
 
-    constraints = [
+    exec_constraints = [
         '"@platforms//os:linux"',
         '"@platforms//cpu:x86_64"',
+    ]
+    target_constraints = exec_constraints + [
         '"@rules_freecad//platforms:freecad_1.0.x"',
     ]
+
     if "macos" in repository_ctx.name:
-        constraints = [
+        exec_constraints = [
             '"@platforms//os:macos"',
             '"@platforms//cpu:arm64"',
+        ]
+        target_constraints = exec_constraints + [
             '"@rules_freecad//platforms:freecad_1.0.x"',
         ]
 
@@ -23,7 +28,8 @@ def _py_distribution_impl(repository_ctx):
         "BUILD.bazel",
         Label("//tools:BUILD.bazel.tpl"),
         substitutions = {
-            "{constraints}": ", ".join(constraints),
+            "{exec_constraints}": ", ".join(exec_constraints),
+            "{target_constraints}": ", ".join(target_constraints),
             "{interpreter_label}": repository_ctx.attr.interpreter_label,
             "{files_label}": repository_ctx.attr.files_label,
         },

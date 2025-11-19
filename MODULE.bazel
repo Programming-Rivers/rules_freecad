@@ -99,7 +99,3 @@ register_toolchains(
     "@python_interpreter_macos_arm64//:freecad_toolchain",
 )
 
-register_execution_platforms(
-    "//platforms:freecad_linux_x86_64",
-    "//platforms:freecad_macos_arm64",
-)
