@@ -12,7 +12,7 @@ def _py_distribution_impl(repository_ctx):
         '"@platforms//cpu:x86_64"',
     ]
     target_constraints = exec_constraints + [
-        '"@rules_freecad//platforms:freecad_1.0.x"',
+        repr(str(Label("//platforms:freecad_1.0.x"))),
     ]
 
     if "macos" in repository_ctx.name:
@@ -21,7 +21,7 @@ def _py_distribution_impl(repository_ctx):
             '"@platforms//cpu:arm64"',
         ]
         target_constraints = exec_constraints + [
-            '"@rules_freecad//platforms:freecad_1.0.x"',
+            repr(str(Label("//platforms:freecad_1.0.x"))),
         ]
 
     repository_ctx.template(

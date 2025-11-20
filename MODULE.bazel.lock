@@ -146,7 +146,7 @@
   "moduleExtensions": {
     "//tools:extensions.bzl%custom_python_extension": {
       "general": {
-        "bzlTransitiveDigest": "7DqLSJkowIHB8aSR8vwPRq+iuIXRpZAzAlDnV4Gqszw=",
+        "bzlTransitiveDigest": "24gMX+KBIJtW8CG5sI6oyqc7S9FxEcVu1b7f3cFFC1Q=",
         "usagesDigest": "MvMQHTYF7eFGji8/uZokyfKKjLL0jK6QNx9LtClkwJU=",
         "recordedFileInputs": {},
         "recordedDirentsInputs": {},
@@ -289,7 +289,7 @@
     },
     "@@rules_kotlin+//src/main/starlark/core/repositories:bzlmod_setup.bzl%rules_kotlin_extensions": {
       "general": {
-        "bzlTransitiveDigest": "hUTp2w+RUVdL7ma5esCXZJAFnX7vLbVfLd7FwnQI6bU=",
+        "bzlTransitiveDigest": "OlvsB0HsvxbR8ZN+J9Vf00X/+WVz/Y/5Xrq2LgcVfdo=",
         "usagesDigest": "QI2z8ZUR+mqtbwsf2fLqYdJAkPOHdOV+tF2yVAUgRzw=",
         "recordedFileInputs": {},
         "recordedDirentsInputs": {},
@@ -353,7 +353,7 @@
     },
     "@@rules_python+//python/uv:uv.bzl%uv": {
       "general": {
-        "bzlTransitiveDigest": "bGHlxez0Lkvq2VwrlfCLraKHiJIRHSIJb432X2+pky8=",
+        "bzlTransitiveDigest": "PmZM/pIkZKEDDL68TohlKJrWPYKL5VwUw3MA7kmm6fk=",
         "usagesDigest": "icnInV8HDGrRQf9x8RMfxWfBHgT3OgRlYovS/9POEJw=",
         "recordedFileInputs": {},
         "recordedDirentsInputs": {},
