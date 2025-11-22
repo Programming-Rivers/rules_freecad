@@ -9,3 +9,15 @@ py_binary(
         "//platforms:freecad_1.0.x",
     ],
 )
+
+py_binary(
+    name = "dependency_demo",
+    srcs = ["dependency_demo.py"],
+    main = "dependency_demo.py",
+    target_compatible_with = [
+        "//platforms:freecad_1.0.x",
+    ],
+    deps = [
+        "//examples/lib:dependency",
+    ],
+)
