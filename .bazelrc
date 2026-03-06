@@ -1,0 +1,2 @@
+build --platforms=//platforms:freecad_linux_x86_64
+run --platforms=//platforms:freecad_linux_x86_64
