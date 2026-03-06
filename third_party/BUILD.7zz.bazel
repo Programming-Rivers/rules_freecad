@@ -1,0 +1,10 @@
+"""
+Build file to use for extracting the 7zz binary output from the 7zz arhcive.
+"""
+
+# Can be used for both Linux and macOS
+filegroup(
+    name = "binary",
+    srcs = ["7zz"],
+    visibility = ["//visibility:public"],
+)
