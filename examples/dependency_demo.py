@@ -1,3 +1,3 @@
-from lib.dependency import f
+from examples.lib.dependency import f
 
-print('Successfully imported dependencies')
+print(f'Successfully imported dependencies: {f()}')
