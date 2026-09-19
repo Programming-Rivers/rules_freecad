@@ -35,11 +35,11 @@ pip = use_extension(
     "pip",
 )
 pip.parse(
-    hub_name = "pypi",
+    hub_name = "rules_freecad_pypi",
     python_version = "3.11",
     requirements_lock = "//:requirements.txt",  # Or requirements.txt if you want Bazel to generate the lock file
 )
-use_repo(pip, "pypi")
+use_repo(pip, "rules_freecad_pypi")
 
 http_file = use_repo_rule(
     "@bazel_tools//tools/build_defs/repo:http.bzl",
