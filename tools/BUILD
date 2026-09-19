@@ -21,12 +21,12 @@ toolchain(
     exec_compatible_with = [
         "@platforms//os:linux",
         "@platforms//cpu:x86_64",
-        "//platforms:freecad_1.0.x",
+        "//platforms:freecad_1.1.x",
     ],
     target_compatible_with = [
         "@platforms//os:linux",
         "@platforms//cpu:x86_64",
-        "//platforms:freecad_1.0.x",
+        "//platforms:freecad_1.1.x",
     ],
     toolchain = ":freecad_py_linux_x86_64",
     toolchain_type = ":toolchain_type",

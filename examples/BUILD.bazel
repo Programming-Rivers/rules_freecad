@@ -6,7 +6,7 @@ py_binary(
     srcs = ["hello_world.py"],
     main = "hello_world.py",
     target_compatible_with = [
-        "//platforms:freecad_1.0.x",
+        "//platforms:freecad_1.1.x",
     ],
 )
 
@@ -15,7 +15,7 @@ py_binary(
     srcs = ["dependency_demo.py"],
     main = "dependency_demo.py",
     target_compatible_with = [
-        "//platforms:freecad_1.0.x",
+        "//platforms:freecad_1.1.x",
     ],
     deps = [
         "//examples/lib:dependency",

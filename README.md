@@ -84,7 +84,7 @@ A user needs to perform two steps to instruct Bazel to use FreeCAD's built-in Py
         name = "main_app",
         srcs = ["main.py"],
         # This constraint ensures Bazel selects the custom FreeCAD toolchain
-        target_compatible_with = ["//platforms:freecad_1.0.x"],
+        target_compatible_with = ["//platforms:freecad_1.1.x"],
     )
     ```
 
@@ -130,11 +130,11 @@ This process is transparent to the end-user:
     The generated `BUILD.bazel` file defines a `py_runtime` target.
     This tells `rules_python` that a Python interpreter exists at `squashfs-root/usr/bin/freecadcmd`.
 5.  **Defining the Platform**:
-    A custom `constraint_value` (`:freecad_1.0.x`) is created to uniquely identify this toolchain.
+    A custom `constraint_value` (`:freecad_1.1.x`) is created to uniquely identify this toolchain.
     This is combined with OS and CPU constraints into a `platform` target.
 6.  **Toolchain Registration**:
     The `register_toolchains` function makes the FreeCAD Python toolchain available to Bazel.
-    When a target requests a Python interpreter and is constrained to the `:freecad_1.0.x` platform,
+    When a target requests a Python interpreter and is constrained to the `:freecad_1.1.x` platform,
     Bazel automatically selects this toolchain.
 
 ### Running the Example
