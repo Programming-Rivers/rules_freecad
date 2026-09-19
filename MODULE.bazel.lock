@@ -196,7 +196,7 @@
   "moduleExtensions": {
     "//tools:extensions.bzl%custom_python_extension": {
       "general": {
-        "bzlTransitiveDigest": "24gMX+KBIJtW8CG5sI6oyqc7S9FxEcVu1b7f3cFFC1Q=",
+        "bzlTransitiveDigest": "AujfCFlfDvgbZo2q8uf49/7csFK1C44FdvQ4hzs5aC0=",
         "usagesDigest": "94MIjcZ6oMnd8xUI78CY7obPUzklyH1XP4xXHW4od+g=",
         "recordedInputs": [],
         "generatedRepoSpecs": {
