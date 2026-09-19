@@ -5,9 +5,6 @@ py_binary(
     name = "hello_world",
     srcs = ["hello_world.py"],
     main = "hello_world.py",
-    deps = [
-        "//examples:package",
-    ],
     target_compatible_with = [
         "//platforms:freecad_1.0.x",
     ],
