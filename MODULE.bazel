@@ -2,7 +2,6 @@
 
 module(
     name = "rules_freecad",
-    version = "0.2.0",
 )
 
 bazel_dep(
