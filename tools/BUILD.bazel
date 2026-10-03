@@ -1,0 +1,10 @@
+"""
+Package definition for the tools directory.
+
+Exports the BUILD.bazel.tpl template used by the py_distribution repository rule
+to generate toolchain BUILD files for each FreeCAD platform.
+"""
+
+package(default_visibility = ["//visibility:public"])
+
+exports_files(["BUILD.bazel.tpl"])

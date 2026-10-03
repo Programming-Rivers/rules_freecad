@@ -27,7 +27,7 @@ py_runtime(
     python_version = "PY3",
 )
 
-# Only use python verison 3:
+# Only use python version 3:
 py_runtime_pair(
     name = "py_runtime_pair",
     py3_runtime = ":py_runtime",

@@ -1,2 +1,7 @@
-build --platforms=//platforms:freecad_linux_x86_64
-run --platforms=//platforms:freecad_linux_x86_64
+common --enable_platform_specific_config
+
+build:linux --platforms=//platforms:freecad_linux_x86_64
+run:linux --platforms=//platforms:freecad_linux_x86_64
+
+build:macos --platforms=//platforms:freecad_macos_arm64
+run:macos --platforms=//platforms:freecad_macos_arm64

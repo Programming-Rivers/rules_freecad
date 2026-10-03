@@ -16,6 +16,10 @@ extract_freecad(
     name = "freecad_extracted_linux",
     src = "@freecad_linux_x86_64//file",
     os = "linux",
+    target_compatible_with = [
+        "@platforms//os:linux",
+        "@platforms//cpu:x86_64",
+    ],
 )
 
 # MacOS Extraction
@@ -23,13 +27,9 @@ extract_freecad(
     name = "freecad_extracted_macos",
     src = "@freecad_macos_arm64//file",
     os = "macos",
-    tool = ":7zip",
-)
-
-config_setting(
-    name = "macos_arm64",
-    constraint_values = [
+    target_compatible_with = [
         "@platforms//os:macos",
         "@platforms//cpu:arm64",
     ],
+    tool = ":7zip",
 )

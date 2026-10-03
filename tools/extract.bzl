@@ -16,10 +16,10 @@ def _extract_freecad_impl(ctx):
         chmod +x freecad.AppImage
         ./freecad.AppImage --appimage-extract > /dev/null
         mv squashfs-root/* {out_dir}/
-        
-        # Remove dangling symlinks
-        find {out_dir} -xtype l -delete
-        
+
+        # Remove dangling symlinks (portable: works on macOS BSD find and GNU find)
+        find -L {out_dir} -type l -exec rm -f {{}} +
+
         # Create wrapper
         echo '#!/bin/bash' > {wrapper}
         echo 'DIR=$(dirname $(realpath $0))/{dir_name}' >> {wrapper}
@@ -45,10 +45,10 @@ def _extract_freecad_impl(ctx):
 
         command = """
         {tool} x {src} -o{out_dir} > /dev/null
-        
-        # Remove dangling symlinks
-        find {out_dir} -xtype l -delete
-        
+
+        # Remove dangling symlinks (portable: works on macOS BSD find and GNU find)
+        find -L {out_dir} -type l -exec rm -f {{}} +
+
         # Create wrapper
         echo '#!/bin/bash' > {wrapper}
         echo 'DIR=$(dirname $(realpath $0))/{dir_name}' >> {wrapper}

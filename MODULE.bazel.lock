@@ -196,22 +196,40 @@
   "moduleExtensions": {
     "//tools:extensions.bzl%custom_python_extension": {
       "general": {
-        "bzlTransitiveDigest": "AujfCFlfDvgbZo2q8uf49/7csFK1C44FdvQ4hzs5aC0=",
-        "usagesDigest": "94MIjcZ6oMnd8xUI78CY7obPUzklyH1XP4xXHW4od+g=",
+        "bzlTransitiveDigest": "dFHbkefx6VjQmbSVkj74AlExLOfch2E2eXeQ4DSMlQI=",
+        "usagesDigest": "UtEoaSmvGuLja1zt2b119O8SJeARwtPcDrht0GR4+EM=",
         "recordedInputs": [],
         "generatedRepoSpecs": {
           "python_interpreter_linux_x86_64": {
-            "repoRuleId": "@@//tools:py_distrubution.bzl%py_distribution",
+            "repoRuleId": "@@//tools:py_distribution.bzl%py_distribution",
             "attributes": {
               "interpreter_label": "'@@//:freecad_extracted_linux'",
-              "files_label": "'@@//:freecad_extracted_linux'"
+              "files_label": "'@@//:freecad_extracted_linux'",
+              "exec_constraints": [
+                "@platforms//os:linux",
+                "@platforms//cpu:x86_64"
+              ],
+              "target_constraints": [
+                "@platforms//os:linux",
+                "@platforms//cpu:x86_64",
+                "'@@//platforms:freecad_1.1.x'"
+              ]
             }
           },
           "python_interpreter_macos_arm64": {
-            "repoRuleId": "@@//tools:py_distrubution.bzl%py_distribution",
+            "repoRuleId": "@@//tools:py_distribution.bzl%py_distribution",
             "attributes": {
               "interpreter_label": "'@@//:freecad_extracted_macos'",
-              "files_label": "'@@//:freecad_extracted_macos'"
+              "files_label": "'@@//:freecad_extracted_macos'",
+              "exec_constraints": [
+                "@platforms//os:macos",
+                "@platforms//cpu:arm64"
+              ],
+              "target_constraints": [
+                "@platforms//os:macos",
+                "@platforms//cpu:arm64",
+                "'@@//platforms:freecad_1.1.x'"
+              ]
             }
           }
         }
