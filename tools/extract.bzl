@@ -23,7 +23,9 @@ def _extract_freecad_impl(ctx):
         # Create wrapper
         echo '#!/bin/bash' > {wrapper}
         echo 'DIR=$(dirname $(realpath $0))/{dir_name}' >> {wrapper}
-        echo 'exec $DIR/usr/bin/freecadcmd "$@"' >> {wrapper}
+        echo 'export PYTHONPATH="$DIR/usr/lib:${{PYTHONPATH:-}}"' >> {wrapper}
+        echo 'export LD_LIBRARY_PATH="$DIR/usr/lib:${{LD_LIBRARY_PATH:-}}"' >> {wrapper}
+        echo 'exec $DIR/usr/bin/python "$@"' >> {wrapper}
         chmod +x {wrapper}
         """.format(
             src = ctx.file.src.path,
