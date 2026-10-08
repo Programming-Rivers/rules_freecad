@@ -18,8 +18,10 @@ rules_python_config = use_extension(
     "@rules_python//python/extensions:config.bzl",
     "config",
 )
+
 # Disable implicit __init__.py creation
 rules_python_config.explicit_init_py(default = True)
+
 python = use_extension(
     "@rules_python//python/extensions:python.bzl",
     "python",
@@ -90,4 +92,3 @@ register_toolchains(
     "@python_interpreter_linux_x86_64//:freecad_toolchain",
     "@python_interpreter_macos_arm64//:freecad_toolchain",
 )
-
